@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - User Upload</title>
+  </head>
+  <body>
+    <h1>Admin User Upload</h1>
+
+    <section>
+      <h2>Create Single User</h2>
+      <form id="single-create-form">
+        <label>
+          Name
+          <input name="name" type="text" required />
+        </label>
+        <label>
+          Email
+          <input name="email" type="email" required />
+        </label>
+        <label>
+          Role
+          <select name="role" required>
+            <option value="teacher" selected>teacher</option>
+            <option value="admin">admin</option>
+          </select>
+        </label>
+        <button type="submit">Create User</button>
+      </form>
+      <p id="single-status"></p>
+    </section>
+
+    <section>
+      <h2>Bulk Upload (CSV)</h2>
+      <p>CSV format: <code>name,email,role</code></p>
+      <form id="csv-upload-form">
+        <input id="csv-file" type="file" accept=".csv" required />
+        <button type="submit">Upload CSV</button>
+      </form>
+      <p id="csv-status"></p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+      window.SUPABASE_URL = "YOUR_SUPABASE_URL";
+      window.SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+    </script>
+    <script src="./js/admin-users.js"></script>
+  </body>
+</html>
